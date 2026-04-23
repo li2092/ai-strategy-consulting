@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local test outputs
+_test_output/
+*.test.md
+*.draft.md
+test_*.html
+
+# User-specific(避免误传客户稿件)
+client_*.md
+真实稿件_*.md
