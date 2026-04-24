@@ -1,71 +1,34 @@
 # AI Strategy Consulting · Claude Skill
 
-> A Claude Code Skill for writing AI strategy consulting reports for enterprises (especially SOEs, central enterprises, and government clients).
-> Distilled from 100+ pages of real client deliverables and multiple rounds of external review.
+> A Claude Code Skill for writing AI strategy reports for any client.
+> Default benchmark is the writing style of frontier tech companies (Google / Anthropic / OpenAI / ByteDance / Tencent). Policy compliance and ROI calculations are optional add-ons triggered on demand.
 
 🌐 **中文版**: [README.md](README.md)
 👤 **Author**: [Jimi](https://jimi.ink/)
 
 ---
 
-## Why Open Source
-
-Writing AI strategy reports has long been the territory of BCG / McKinsey / top consulting firms — methodologies locked away in private engagements, inaccessible to industry practitioners.
-
-But everyone in every industry is asking the same questions:
-
-- Where can AI actually apply in my industry?
-- Is it too late to start? How much should I invest?
-- What pitfalls have others hit that I can avoid?
-- How can I think this through myself before paying a consultant to tell me?
-
-This skill open-sources (with full client desensitization) the methodology + 13 anti-patterns + 3 Python check tools accumulated from real AI strategy engagements.
-
-**The goal**: enable any industry practitioner (healthcare / education / manufacturing / logistics / retail / agriculture / ...) to use Claude (or their own approach) to quickly explore "what AI applications make sense for my industry" — no consulting firm needed, no million-dollar budget required. Just a browser + Claude Code.
-
-If you use this skill to produce interesting AI strategy thinking, share it in [GitHub Discussions](../../discussions) (any industry, any outcome). **Let's make AI strategy accessible to all.**
-
-### How We Deliver on the "Any Industry, No Consulting Firm Needed" Promise
-
-Two key design decisions:
-
-1. **Mode L · Lite Personal/Team Exploration** — You provide "industry + role + one-line pain point", and AI produces a 5-10 page exploration document in 0.5-1 day (industry overview + 8-15 AI candidate scenarios + Top 3 recommendations + first-step actions). No need for a 60-100 page formal strategy report.
-2. **Unfamiliar Industry Bootstrapping Framework** — Your industry (pet hospitals / private elderly care / second-hand luxury / any long-tail vertical) isn't in the 10 pre-built templates? The framework establishes adequate domain understanding in 1-2 hours, then runs Mode L. **Framework first, examples second — templates aren't the boundary.**
-
----
-
 ## What This Skill Solves
 
-13 most common pitfalls when writing AI strategy reports (battle-tested):
+AI strategy reports easily turn into "looks complete, actually empty" decks — all tables, stacked RAG/Agent jargon, every recommendation marked "high value, low difficulty", no "what we won't do" section, the AI talking to itself the whole way through.
 
-1. Fabricated equity-chain narratives
-2. Cross-client content leakage (using Client A's internal data in Client B's report)
-3. Self-citing external evidence (project team's own activities as "external validation")
-4. Citation overreach (single-source methodology → "industry must-do")
-5. Misapplied economic models (international platform pricing → SMB clients)
-6. Stale data residue (main draft updated, supporting docs not)
-7. Coarse strategic judgment ("path is blocked" — lazy expression)
-8. Threat-based opportunity-cost narratives
-9. AI premium assumption (clients won't pay more just because vendors use AI)
-10. Second-person colloquialisms + media-style writing
-11. High-risk vocabulary stacking (empower / build / closed-loop / lever / ...)
-12. Triple parallelism / rhetorical question openings / cliché transitions
-13. Quantity claims inconsistent with actual count
+This skill solves that with three layers:
 
-This skill provides: **complete methodology + 11-chapter main report skeleton + one-pager + PPT + 6 appendix types + 4 HTML chart templates + 3 Python self-check scripts** to help you avoid these pitfalls.
+1. **2-Step main flow**: Step 1 explore directions (open, no premature filtering) → Step 2 write the strategy report (default 7 chapters, strict structure)
+2. **5 Hard Constraints (H1-H5)**: tables ≤ 25%, ≥ 2 paragraphs of prose per chapter, recommendations need concrete anchors, benchmarks follow a strict format, must include a "trade-offs" section
+3. **Checkpoint Protocol**: after every chapter the AI must surface its doubts and wait for user confirmation — no one-shot drafting
 
 ---
 
 ## When to Use
 
-| Scenario | Typical Client | Recommended Mode |
+| Scenario | Client Type | Flow |
 |---|---|---|
-| Writing AI strategy reports / AI transformation roadmaps | SOEs / central enterprises / government / industry leaders | Mode D → P → R |
-| Feasibility assessment + ROI calculation for AI applications | Any pre-launch AI decision | Mode D or Mode L |
-| AI Copilot / Agent / industry LLM / custom small-model strategy proposals | Engineering / finance / manufacturing / government | Mode D → P → R |
-| Reviewing existing AI strategy drafts against hard consulting standards | Any consulting deliverable | Mode R · 4-layer review |
-| **Industry insiders self-asking: how should AI fit into my industry?** | **Internal teams in any industry** | **Mode L · Lite** |
-| **Bootstrapping unfamiliar industries** (long-tail verticals beyond pre-built templates) | **Individuals / small teams / cross-industry explorers** | **Mode L + Unfamiliar Industry Framework** |
+| Draft AI strategy / Copilot proposal for a tech company | Internet / startup / internal team | Step 1 → Step 2 |
+| Explore "what AI can do in our industry" | Internal teams in any industry | Step 1 alone |
+| Direction already chosen, write a formal AI strategy doc | Board / executive scenarios | Step 2 directly |
+| Write AI strategy for SOE / government / engineering / regulated clients | Regulated, formal procurement process | Step 1 → Step 2 + enable ROI / policy add-ons |
+| Review an existing AI strategy draft | Any existing draft | Standalone review (use anti-pattern reference) |
 
 **Not for**: general IT consulting / pure technical proposals / document beautification (use other skills).
 
@@ -74,8 +37,6 @@ This skill provides: **complete methodology + 11-chapter main report skeleton + 
 ## Quick Start
 
 ### 1. Install
-
-Clone into your Claude Code skills directory:
 
 ```bash
 # macOS / Linux
@@ -91,31 +52,28 @@ Restart Claude Code; the skill auto-loads.
 
 ### 2. Trigger
 
-In Claude Code, say any of:
+In Claude Code, say any of these to activate the skill:
 
-**Mode L · Personal/Team Exploration** (0.5-1 day, no client engagement needed):
+**Step 1 explore directions** (when the direction isn't decided yet):
 - "What can AI do in our [industry]?"
 - "Help me explore AI applications in [X industry]"
-- "I'm in [pet hospitals / private elderly care / second-hand luxury / ...], what can AI do for me?"
-- "Draft an AI exploration document, 5-10 pages, by end of week"
+- "I want to see how AI fits into [Y scenario]"
 
-**Mode D-P-R · Full Formal Report** (2-4 days, for clients/leadership):
-- "Help me write an AI strategy report for X client"
+**Step 2 write the strategy report** (when you've chosen the top directions and need a formal draft):
+- "Help me write an AI strategy report for [client]"
 - "Draft an AI transformation roadmap"
-- "Evaluate AI Copilot feasibility in X industry"
-- "Review this AI strategy draft against hard consulting standards"
+- "Write an AI Copilot / Agent strategy proposal"
+
+**Review an existing draft**:
+- "Run this AI strategy draft through the hard standards"
+- "Check this with the anti-pattern reference"
 
 **Universal keywords**: `AI strategy / AI consulting / AI roadmap / AI transformation / enterprise AI / Agent strategy / AI exploration`
 
-### 3. Self-Check Scripts (pure Python stdlib, no pip install needed)
+### 3. Self-check (zero scripts)
 
-After drafting:
-
-```bash
-python scripts/ai_slop_check.py main-report.md      # AI-slop check (target < 5 hits)
-python scripts/label_coverage.py main-report.md     # Three-tag coverage (target ≥ 85%)
-python scripts/cross_client_check.py main-report.md --client "[Your Client Name]"
-```
+This skill ships with no Python scripts. All self-checks rely on grep + manual review.
+[`references/04-anti-patterns.md`](references/04-anti-patterns.md) ends with a complete grep cheatsheet you can copy and run.
 
 ---
 
@@ -123,43 +81,36 @@ python scripts/cross_client_check.py main-report.md --client "[Your Client Name]
 
 ```
 ai-strategy-consulting/
-├── SKILL.md                       # Main entry (Claude auto-loads) · Mode L/D/P/R workflows
-├── README.md                      # Chinese version
-├── README.en.md                   # This file
-├── LICENSE                        # MIT
-├── references/                    # Detailed methodology (loaded on demand)
-│   ├── 01-information-gathering.md   # 5-dim gathering + client context 7-items + 10 industry templates
-│   ├── 02-frameworks.md              # BCG / McKinsey / 5 filters / Value 4-questions
-│   ├── 03-report-architecture.md     # 11-chapter skeleton + 4 opening hooks
-│   ├── 04-anti-patterns.md           # 13+ anti-patterns quick reference
-│   ├── 05-roi-templates.md           # Lean / Standard / Heavy three-tier ROI
-│   ├── 06-language-discipline.md     # Anti-AI-slop + anti-threat + Claim-Evidence-Implication
-│   ├── 07-review-checklist.md        # 8-dim 51-item + 6-step + adversarial review
-│   ├── 08-deliverable-formats.md     # Main report / one-pager / PPT / 6 appendices specs
-│   ├── 09-visualization-templates.md # 4 HTML chart templates (blue-orange palette)
-│   ├── 10-output-formats.md          # MD → Word / PPT / PDF tool paths
-│   ├── 11-review-thinking-model.md   # Review 4-layer cognitive model (L1 cause / L2 premise / L3 global / L4 structure)
-│   └── 12-unfamiliar-industry-framework.md  # Unfamiliar industry bootstrapping (any industry in 1-2 hours)
-├── assets/                        # Ready-to-use templates
-│   ├── main-report-template.md       # 11-chapter main report template (Mode R)
-│   ├── one-pager-template.md         # 4-quadrant one-pager template (Mode R)
-│   ├── ppt-outline-template.md       # 20+6 PPT template (Mode R)
-│   └── lite-mode-template.md         # Mode L · 5-10 page exploration document template
-└── scripts/                       # Python check scripts (stdlib only)
-    ├── ai_slop_check.py
-    ├── label_coverage.py
-    └── cross_client_check.py
+├── SKILL.md                            # Main entry (Claude auto-loads)
+├── README.md                           # Chinese version
+├── README.en.md                        # This file
+├── LICENSE                             # MIT
+├── references/                         # Detailed methodology (loaded on demand)
+│   ├── 01-step1-exploration.md            # Step 1 detailed method
+│   ├── 02-step2-drafting.md               # Step 2 detailed method + default 7-chapter structure
+│   ├── 03-strategy-depth.md               # 5 hard constraints (H1-H5) detail
+│   ├── 04-anti-patterns.md                # P0-P4 anti-patterns reference + grep cheatsheet
+│   ├── 05-language-discipline.md          # Anti-AI-slop / 3-tag discipline / sentence-paragraph control
+│   ├── 06-checkpoint-protocol.md          # Checkpoint protocol (this skill's core mechanism)
+│   ├── 07-review-thinking-model.md        # Review 4-layer cognitive model
+│   ├── 08-unfamiliar-industry.md          # Unfamiliar-industry bootstrapping framework
+│   ├── 09-output-formats.md               # MD → Word / PPT conversion paths
+│   ├── add-on-roi.md                      # Optional · ROI calculation (SOE / engineering)
+│   └── add-on-soe-policy.md               # Optional · Policy compliance (SOE / government)
+└── assets/                             # Ready-to-fill templates
+    ├── exploration-template.md            # Step 1 exploration document template
+    └── report-template.md                 # Step 2 strategy report template
 ```
 
 ---
 
 ## Design Principles
 
-1. **Zero external skill dependency** — no need to install other skills
-2. **Zero third-party Python dependency** — scripts use only sys / re / pathlib
-3. **Client-desensitized** — all methodology, cases, and numbers are generic; no named client content
-4. **Self-contained methodology + templates + check tools** — but "last mile" (Word / PPT / screenshots) is left to your local toolchain
-5. **Critical discipline** — anti-AI-slop, anti-threat-narrative, anti-self-citation, anti-cross-client leakage; four zero-tolerance categories
+1. **Zero scripts, zero external skill dependency** — install and use, no extra tooling needed
+2. **Client desensitized** — all methodology, cases, numbers are generic; no named-client content
+3. **Default benchmark: frontier tech companies** — does not assume the client is SOE / government; policy and ROI are opt-in add-ons
+4. **Checkpoint enforces incremental review** — the AI surfaces doubts after every chapter to prevent "looks complete, actually empty"
+5. **Anti-AI-slop / anti-threat / anti-self-citation / anti-cross-client** — four zero-tolerance categories
 
 ---
 
@@ -167,13 +118,12 @@ ai-strategy-consulting/
 
 Methodology framework draws on:
 
-- BCG · 10-20-70 framework (2025)
+- BCG · 10-20-70 framework
 - McKinsey · Steer-Scale-Institutionalize
-- MIT Sloan + BCG · Agentic Enterprise four tensions (2025)
 - Barbara Minto · Pyramid Principle
-- "On Looking Right" 4-layer cognitive architecture (L1 cause / L2 premise / L3 global / L4 structure) — used in the review 4-layer model (`references/11-review-thinking-model.md`)
+- "On Looking Right" 4-layer cognitive architecture (L1 cause / L2 premise / L3 global / L4 structure) — used in the review 4-layer model
 
-Battle-tested discipline (13 anti-patterns + 6-step review + adversarial self-review + 4-layer review + unfamiliar industry framework) distilled from the author's hands-on AI strategy engagements with SOE clients, external review records, and repeated diagnosis of the "looks right but actually isn't" problem.
+Battle-tested discipline distilled from the author's hands-on AI strategy engagements with multiple clients, external review records, and repeated diagnosis of the "looks right but actually isn't" problem.
 
 ---
 
@@ -188,8 +138,6 @@ Battle-tested discipline (13 anti-patterns + 6-step review + adversarial self-re
 Issues / PRs welcome. If you discover new anti-patterns or pitfalls, please file a GitHub Issue.
 
 Especially welcomed:
-
-- **New industry ROI templates** (healthcare / education / retail / agriculture / logistics / ...)
-- **New HTML chart templates**
+- **New optional add-ons** (industry policy / industry ROI / industry-specific bootstrapping)
 - **Anti-AI-slop rules in other languages**
-- **Share your interesting AI strategy thinking** built with this skill (to Discussions)
+- **Share interesting AI strategy thinking** built with this skill (Discussions)
