@@ -8,6 +8,25 @@
 
 ---
 
+## Why Open Source
+
+Writing AI strategy reports has long been the territory of BCG / McKinsey / top consulting firms — methodologies locked away in private engagements, inaccessible to most practitioners.
+
+But **everyone in every industry is asking the same questions**:
+
+- Where can AI actually apply in my industry?
+- Is it too late to start? How much should I invest?
+- What pitfalls have others hit that I can avoid?
+- How can I think this through myself before paying a consultant to tell me?
+
+This skill open-sources (with full client desensitization) the methodology + anti-patterns + self-check cheatsheets accumulated from real AI strategy engagements.
+
+**The goal**: enable any industry practitioner (tech / healthcare / education / manufacturing / logistics / retail / agriculture / engineering / government / ...) to use Claude to quickly explore "what AI applications make sense for my industry" — no consulting firm needed, no million-dollar budget required. Just a browser + Claude Code.
+
+If you use this skill to produce interesting AI strategy thinking, share it in [GitHub Discussions](../../discussions) (any industry, any outcome). **Let's make AI strategy accessible to all.**
+
+---
+
 ## What This Skill Solves
 
 AI strategy reports easily turn into "looks complete, actually empty" decks — all tables, stacked RAG/Agent jargon, every recommendation marked "high value, low difficulty", no "what we won't do" section, the AI talking to itself the whole way through.
